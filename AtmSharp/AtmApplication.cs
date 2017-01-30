@@ -37,6 +37,12 @@ namespace AtmSharp
         /// </summary>
         private void Run()
         {
+            //create a bank for a more real-life like implementation
+
+            //create ATM and link it with the bank
+
+            //start the ATM machine
+
         }
 
     }

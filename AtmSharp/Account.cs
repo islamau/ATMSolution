@@ -159,6 +159,10 @@ namespace AtmSharp
         /// <returns>the new account balance AFTER the amount was deposited to avoid a call to the Balance.get if needed</returns>
         public virtual double Deposit(double amount)
         {
+            //check that the amount is positive
+
+            //change the balance
+
             //provide the new balance to the caller to avoid a getBalance() call
             return _balance;
         }
@@ -171,6 +175,10 @@ namespace AtmSharp
         /// <returns>the new account balance AFTER the amount was deposited to avoid a call to getBalance() if needed</returns>
         public virtual double Withdraw(double amount)
         {
+            //ensure the amount provided is valid
+
+            //change the balance
+
             //provide the new balance to the caller to avoid a getBalance() call
             return _balance;
         }
@@ -181,6 +189,8 @@ namespace AtmSharp
         /// <param name="acctFileReader">file reader object to read the account file data</param>
         public void Load(StreamReader acctFileReader)
         {
+            //read the account properties in the same order they were saved
+
         }
 
         /// <summary>
@@ -189,6 +199,8 @@ namespace AtmSharp
         /// <param name="fileWriter">file writer object to write the account file data</param>
         public void Save(StreamWriter acctFileWriter)
         {
+            //write the account properties, one per line
+
         }
 
         #endregion

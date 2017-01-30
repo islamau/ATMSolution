@@ -48,7 +48,9 @@ namespace AtmSharp
         /// <param name="annualIntrRate"></param>
         public override void SetAnnualIntrRate(float annualIntrRate)
         {
-            //TODO: verify the annual interest rate
+            //check to ensure the annual interest rate is valid for a checquing account
+
+            //use the base class to set the annual interest rate
             base.SetAnnualIntrRate(annualIntrRate);
         }
 
@@ -61,7 +63,14 @@ namespace AtmSharp
         /// <returns>the new account balance AFTER the amount was deposited to avoid a call to getBalance() if needed</returns>
         public override double Withdraw(double amount)
         {
-            return base.Withdraw(amount);
+            //check the amount provided to ensure it is valid
+
+            //check the overdraft on top of the actual balance
+
+            //change the balance
+
+            //provide the new balance to the caller to avoid a getBalance() call
+            return 0;
         }
     }
 }

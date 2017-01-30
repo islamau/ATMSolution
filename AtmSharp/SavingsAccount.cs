@@ -49,7 +49,9 @@ namespace AtmSharp
         /// <param name="annualIntrRate"></param>
         public override void SetAnnualIntrRate(float annualIntrRate)
         {
-            //TODO: verify the annual interest rate
+            //check to ensure the annual interest rate is valid for a savings account
+
+            //use the base class to set the annual interest rate
             base.SetAnnualIntrRate(annualIntrRate);
         }
 

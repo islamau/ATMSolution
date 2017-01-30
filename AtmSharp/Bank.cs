@@ -63,6 +63,13 @@ namespace AtmSharp
         /// </summary>
         public void LoadAccountData()
         {
+            //get the directory path to the account files
+
+            //get the list of files in the directory
+
+            //go through the list of files, create the appropriate accounts and load the account files
+
+            //if at this point the list of accounts is empty add the defaults accounts so the application is usable
         }
 
         /// <summary>
@@ -73,6 +80,11 @@ namespace AtmSharp
         /// </summary>
         public void SaveAccountData()
         {
+            //locate the path to the account files
+
+            //make the directory if it does not exist
+
+            //go through each account in the list of accounts and ask it to save itself into a corresponding file
         }
 
         /// <summary>
@@ -81,6 +93,13 @@ namespace AtmSharp
         /// </summary>
         private void CreateDefaultAccounts()
         {
+            //repeat for as many default accounts need to be created
+            {
+                //create the account with required default properties
+
+                //add the account to the list
+            }
+
         }
 
         /// <summary>
@@ -91,6 +110,13 @@ namespace AtmSharp
         /// <returns>the account created</returns>
         public Account OpenAccount(string clientName, AccountType acctType)
         {
+            //prompt the user for an account number
+
+            //create and store an account object with the required attributes
+
+            //add the new account to the list of the accounts
+
+            //return the account to the caller so other properties can be set
             return null;
         }
 
@@ -101,7 +127,20 @@ namespace AtmSharp
         /// <returns></returns>
         private int DetermineAccountNumber()
         {
-            return 0;
+            //repeat trying to ask the user for the required input until the input is correct or the user cancels
+            while (true)
+            {
+                //ask the user for input
+
+                //check whether the user cancelled the operation
+
+                //check the input to ensure correctness and deal with incorrect input
+
+                //check that the account number is not in use
+
+                //the account number has been generated successfully
+                return 0;
+            }
         }
 
         /// <summary>
@@ -111,6 +150,9 @@ namespace AtmSharp
         /// <returns>the account object with the given ID</returns>
         public Account FindAccount(int acctNo)
         {
+            //go through all the accounts until one is found with the given account number
+
+            //if the program got here it means there was no account with the given account number
             return null;
         }
 
