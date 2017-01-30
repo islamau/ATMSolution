@@ -42,5 +42,15 @@ namespace AtmSharp
         /// the bank this ATM object is working with
         /// </summary>
         private Bank _bank;
+
+        /// <summary>
+        /// Atm constructor that initializes the bank the ATM works with
+        /// </summary>
+        /// <param name="bank">the bank that manages the account objects the ATM works with</param>
+        public Atm(Bank bank)
+        {
+            _bank = bank;
+        }
+
     }
 }

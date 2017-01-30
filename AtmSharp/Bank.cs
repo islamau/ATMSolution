@@ -47,5 +47,15 @@ namespace AtmSharp
         /// of the field variable
         /// </summary>
         private const string SAV_ACCT_FILE_PREFIX = "savacct";
+
+        /// <summary>
+        /// Constructor used to create bank objects. The bank will have a list of accounts which is to storage of acccounts
+        /// the application works with
+        /// </summary>
+        public Bank()
+        {
+            _accountList = new List<Account>();
+        }
+
     }
 }

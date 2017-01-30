@@ -49,5 +49,26 @@ namespace AtmSharp
         /// of the field variable is set to "protected" to allow it to be accessed by derived classes.
         /// </summary>
         protected float _annualIntrRate;
+
+        /// <summary>
+        /// Initialize the account object with its attributes.
+        /// The account constructor requires the caller to supply an account number and
+        /// the name of the account holder in order to create an account. 
+        /// 
+        /// NOTE: the constructor assigns default values to each parameter allowing the code
+        /// not to supply them (i.e. acct = Account()). If the calling code does not supply
+        /// values for the two parameters they will receive these default values. This is used
+        /// when the accounts are created from data files 
+        /// </summary>
+        /// <param name="acctNo">the account number</param>
+        /// <param name="acctHolderName">the name of the account holder</param>
+        public Account(int acctNo = -1, string acctHolderName = "")
+        {
+            _acctNo = acctNo;
+            _acctHolderName = acctHolderName;
+            _balance = 0.0f;
+            _annualIntrRate = 0.0f;
+        }
+
     }
 }
