@@ -16,6 +16,8 @@ namespace AtmSharp
     /// </summary>
     public enum AccountType
     {
+        Chequing = 1,
+        Savings
     }
 
     /// <summary>
@@ -23,5 +25,29 @@ namespace AtmSharp
     /// </summary>
     public class Account
     {
+        /// <summary>
+        /// the account number, read-only attribute
+        /// </summary>
+        private int _acctNo;
+
+        /// <summary>
+        /// the name of the account holder, read-only attribute
+        /// </summary>
+        private string _acctHolderName;
+
+        /// <summary>
+        /// the account balance that gets affected by withdrawls and deposits. Note the visibility
+        /// of the field variable is set to "protected" to allow it to be accessed by derived classes.
+        /// NOTE: the type is used as a double while the annual interest rate is float just to showcase
+        /// the two floating point types. In practice financial application actually would use "decimals"
+        /// which provide most precision.
+        /// </summary>
+        protected double _balance;
+
+        /// <summary>
+        /// the annual interest rate applicable on the balance.Note the visibility
+        /// of the field variable is set to "protected" to allow it to be accessed by derived classes.
+        /// </summary>
+        protected float _annualIntrRate;
     }
 }

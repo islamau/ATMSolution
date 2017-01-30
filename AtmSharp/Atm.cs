@@ -11,6 +11,9 @@ namespace AtmSharp
     /// </summary>
     enum MainMenuOption
     {
+        SelectAccount = 1,
+        CreateAccount,
+        ExitAtmApplication
     }
 
     /// <summary>
@@ -18,6 +21,11 @@ namespace AtmSharp
     /// </summary>
     enum AccountMenuOption
     {
+        CheckBalance = 1,
+        Withdraw,
+        Deposit,
+        DisplayTransactions,
+        ExitAccount
     }
 
     /// <summary>
@@ -29,6 +37,10 @@ namespace AtmSharp
     /// Version 3.2 (C#)    
     /// </remarks>
     public class Atm
-    {       
+    {
+        /// <summary>
+        /// the bank this ATM object is working with
+        /// </summary>
+        private Bank _bank;
     }
 }
