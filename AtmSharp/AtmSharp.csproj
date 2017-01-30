@@ -43,8 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
+    <Compile Include="Atm.cs" />
     <Compile Include="AtmApplication.cs" />
+    <Compile Include="Bank.cs" />
+    <Compile Include="BankingExceptions.cs" />
+    <Compile Include="ChecquingAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SavingsAccount.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
