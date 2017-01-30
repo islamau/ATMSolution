@@ -70,5 +70,128 @@ namespace AtmSharp
             _annualIntrRate = 0.0f;
         }
 
+        #region Accessor / Mutator Methods
+        /// <summary>
+        /// Accessor method for the account number that uniquely identifies the account in the bank.
+        /// </summary>
+        /// <returns>account number</returns>
+        public int GetAccountNumber()
+        {
+            return _acctNo;
+        }
+
+        /// <summary>
+        /// Mutator method for the account number that uniquely identifies the account in the bank.
+        /// </summary>
+        /// <param name="acctNo">new account number</param>
+        public void SetAccountNumber(int acctNo)
+        {
+            _acctNo = acctNo;
+        }
+
+        /// <summary>
+        /// Acessor method for the name of the account holder
+        /// </summary>
+        /// <returns>name of account holder</returns>
+        public string GetAcctHolderName()
+        {
+            return _acctHolderName;
+        }
+
+        /// <summary>
+        /// Mutator method for the name of the account holder
+        /// </summary>
+        /// <param name="acctHolderName">name of account holder</param>
+        public void SetAcctHolderName(string acctHolderName)
+        {
+            _acctHolderName = acctHolderName;
+        }
+
+        /// <summary>
+        /// Accessor method for the annual interest rate. 
+        /// </summary>
+        /// <returns>annual interest rate as a percentage</returns>
+        public float GetAnnualIntrRate()
+        {
+            return _annualIntrRate * 100;
+        }
+
+        /// <summary>
+        /// Mutator method for the annual interest rate.
+        /// </summary>
+        /// <param name="annualIntrRate">
+        /// Annual interest rate as a whole percentage (e.g. 3 = 3% resulting in an interest rate of 0.03).
+        /// </param>
+        public virtual void SetAnnualIntrRate(float annualIntrRate)
+        {
+            //the value is expected to be a percentage. Not the "f" suffix which makes the 100 literal a "float"
+            _annualIntrRate = annualIntrRate / 100f;
+        }
+
+        /// <summary>
+        /// The monthly interest rate is a read-only property. Valued is derived from the annual interest rate
+        /// </summary>
+        /// <returns>monthly interest rate</returns>
+        public float GetMonthlyIntrRate()
+        {
+            return _annualIntrRate / 12;
+        }
+
+        /// <summary>
+        /// Accessor method for the balance of the account. Read-only property. The balance can be changed only via a banking tansaction
+        /// such as a deposit or withdrawal
+        /// </summary>
+        /// <returns></returns>
+        public double GetBalance()
+        {
+            return _balance;
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Deposit the given amount in the account and return the new balance. This method is polymorphic (defined as virtual)
+        /// too allow specific (derived) account classes to override this base functionality
+        /// </summary>
+        /// <param name="initDepositAmount">the amount to be deposited</param>
+        /// <returns>the new account balance AFTER the amount was deposited to avoid a call to the Balance.get if needed</returns>
+        public virtual double Deposit(double amount)
+        {
+            //provide the new balance to the caller to avoid a getBalance() call
+            return _balance;
+        }
+
+        /// <summary>
+        /// Withdraw the given amount from the account and return the new balance. This method is polymorphic (defined as virtual)
+        /// too allow specific (derived) account classes to override this base functionality
+        /// </summary>
+        /// <param name="amount">the amount to be withdrawn, cannot be negative or greater than available balance</param>
+        /// <returns>the new account balance AFTER the amount was deposited to avoid a call to getBalance() if needed</returns>
+        public virtual double Withdraw(double amount)
+        {
+            //provide the new balance to the caller to avoid a getBalance() call
+            return _balance;
+        }
+
+        /// <summary>
+        /// Load the account information using the given stream reader object
+        /// </summary>
+        /// <param name="acctFileReader">file reader object to read the account file data</param>
+        public void Load(StreamReader acctFileReader)
+        {
+        }
+
+        /// <summary>
+        /// Save the account information using the given stream writer object
+        /// </summary>
+        /// <param name="fileWriter">file writer object to write the account file data</param>
+        public void Save(StreamWriter acctFileWriter)
+        {
+        }
+
+        #endregion
+
     }
 }

@@ -41,5 +41,27 @@ namespace AtmSharp
             //by client code to the base class through the base(..) call
         }
 
+        /// <summary>
+        /// The Annual Interest Rate mutator is overridden in order to verify that the annual interest rate is valid 
+        /// for a checquing account when setting the interest rate
+        /// </summary>
+        /// <param name="annualIntrRate"></param>
+        public override void SetAnnualIntrRate(float annualIntrRate)
+        {
+            //TODO: verify the annual interest rate
+            base.SetAnnualIntrRate(annualIntrRate);
+        }
+
+        /// <summary>
+        /// Withdraw the given amount from the account and return the new balance. The checquing account override
+        /// the base implementation in order to implement overdraft functionality that checquing accounts have. This
+        /// allows clients to withdraw more than the balance, up to the overdraft limit amount
+        /// </summary>
+        /// <param name="amount">the amount to be withdrawn, cannot be negative or greater than balance and overdraft combined</param>
+        /// <returns>the new account balance AFTER the amount was deposited to avoid a call to getBalance() if needed</returns>
+        public override double Withdraw(double amount)
+        {
+            return base.Withdraw(amount);
+        }
     }
 }

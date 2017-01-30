@@ -57,5 +57,63 @@ namespace AtmSharp
             _accountList = new List<Account>();
         }
 
+        /// <summary>
+        /// Load the account data for all the accounts. The account data files are stored in a directory
+        /// named BankingData located in the current directory, the directory used to run the application from        
+        /// </summary>
+        public void LoadAccountData()
+        {
+        }
+
+        /// <summary>
+        /// Saves the data for all accounts in the data directory of the application. Each account is
+        /// saved in a separate file which contains all the information and list of transactions performed
+        /// in the account. The account data files are stored in a directory named BankingData located in the 
+        /// current directory, the directory used to run the application from
+        /// </summary>
+        public void SaveAccountData()
+        {
+        }
+
+        /// <summary>
+        /// Create 10 accounts with predefined IDs and balances. The default accounts are created only
+        /// if no account data files exist
+        /// </summary>
+        private void CreateDefaultAccounts()
+        {
+        }
+
+        /// <summary>
+        /// Create and store an account object with the required attributes
+        /// </summary>
+        /// <param name="clientName">the name of the account holder</param>
+        /// <param name="acctType">the type of account to create</param>
+        /// <returns>the account created</returns>
+        public Account OpenAccount(string clientName, AccountType acctType)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Determine the account number prompting the user until they enter the correct information.
+        /// The method throws an OperationCancel exception if the user chooses to terminate.
+        /// </summary>
+        /// <returns></returns>
+        private int DetermineAccountNumber()
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// Returns the account with the given account number or null if no account with that ID can be found
+        /// </summary>
+        /// <param name="acctNo">the account number of the account to return</param>
+        /// <returns>the account object with the given ID</returns>
+        public Account FindAccount(int acctNo)
+        {
+            return null;
+        }
+
+
     }
 }
